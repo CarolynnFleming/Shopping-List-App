@@ -30,3 +30,5 @@ const slReducer = (state, action) => {
                 throw new Error(`Action type ${action.type} is not supported`);
     }
 };
+
+const SlContext = createContext();
