@@ -1,6 +1,6 @@
 import { createContext, useContext, useReducer } from "react";
 
-const originalSL = [{ id: Date.now(), text: 'Grab some milk', done: fase }];
+const originalSl = [{ id: Date.now(), text: 'Grab some milk', done: fase }];
 
 const slReducer = (state, action) => {
     switch(action, type) {
@@ -32,3 +32,11 @@ const slReducer = (state, action) => {
 };
 
 const SlContext = createContext();
+
+export const ShoppinglistProvider = ({ children }) => {
+    const [listitems, dispatch] = useReducer(listitemReducer, originalSl);
+
+    const controlAddListitem = (text) => {
+        dispatch({ type: 'ADD_LISTITEM', payload: { text } });
+    }
+}
