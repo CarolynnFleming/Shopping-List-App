@@ -1,14 +1,15 @@
-import Header from './components/Layout/Header';
-import { ShoppinglistProvider } from './context/ShoppinglistProvider';
-import List from './views/ShoppingList/List';
+import { createContext, useContext, useReducer } from "react";
 
-export default function ShoppinglistProvider() {
-  return (
-    <>
-    <ShoppinglistProvider>
-        <Header />
-        <List />
-    </ShoppinglistProvider>
-    </>
-  )
+const originalSL = [{ id: Date.now(), text: 'Grab some milk', done: fase }];
+
+const slReducer = (state, action) => {
+    switch(action, type) {
+        case 'ADD_LISTITEM':
+
+        return [
+            { id: Date.now(), test: action.payload.text, done: false },
+            ...state,
+        ];
+        case 'UPDATE_LISTITEM':
+    }
 }

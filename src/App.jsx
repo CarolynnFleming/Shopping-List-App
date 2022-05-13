@@ -1,3 +1,14 @@
+import Header from './components/Layout/Header';
+import { ShoppinglistProvider } from './context/ShoppinglistProvider';
+import List from './views/ShoppingList/List';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return(
+    <>
+    <ShoppinglistProvider>
+        <Header />
+        <List />
+    </ShoppinglistProvider>
+    </>
+  )
 }
