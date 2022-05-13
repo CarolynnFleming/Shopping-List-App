@@ -6,6 +6,12 @@ export default function List() {
     const [newItem, setNewItem] = useState('');
     const { listitems, controlAddListitems, controlUpdateListitem, controlDeleteListitem } =
     useListitems();
+
+    const controlSubmit = (event) => {
+        event.preventDefault();
+        controlAddListitems(newItem);
+        setNewItem('');
+    };
   return (
     <div>List</div>
   )
