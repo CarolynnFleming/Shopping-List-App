@@ -55,3 +55,11 @@ export const ShoppinglistProvider = ({ children }) => {
         </SlContext.Provider>
     );
 };
+
+export const useListitems = () => {
+    const context = useContext(SlContext);
+
+    if (context === undefined)
+
+    throw new Error('useListitems has to be called within a SlProvider')
+}
