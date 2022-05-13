@@ -1,9 +1,9 @@
 import { createContext, useContext, useReducer } from "react";
 
-const originalSl = [{ id: Date.now(), text: 'Grab some milk', done: fase }];
+const initialListitems = [{ id: Date.now(), text: 'Grab some milk', done: false }];
 
-const slReducer = (state, action) => {
-    switch(action, type) {
+const listitemReducer = (state, action) => {
+    switch(action.type) {
         case 'ADD_LISTITEM':
 
         return [
@@ -14,7 +14,6 @@ const slReducer = (state, action) => {
             return state.map((listitem) => {
                 if (listitem.id === action.payload.listitem.id) {
                     const { done, text } = action.payload.listitem;
-
                     return {
                         ...listitem,
                         done,
@@ -31,10 +30,10 @@ const slReducer = (state, action) => {
     }
 };
 
-const SlContext = createContext();
+const ListitemContext = createContext();
 
 export const ShoppinglistProvider = ({ children }) => {
-    const [listitems, dispatch] = useReducer(listitemReducer, originalSl);
+    const [listitems, dispatch] = useReducer(listitemReducer, initialListitems);
 
     const controlAddListitem = (text) => {
         dispatch({ type: 'ADD_LISTITEM', payload: { text } });
@@ -49,17 +48,19 @@ export const ShoppinglistProvider = ({ children }) => {
     };
 
     return (
-        <SlContext.Provider
+        <ListitemContext.Provider
         value={{ listitems, controlAddListitem, controlUpdateListitem, controlDeleteListitem }}>
             {children}
-        </SlContext.Provider>
+        </ListitemContext.Provider>
     );
 };
 
 export const useListitems = () => {
-    const context = useContext(SlContext);
+    const context = useContext(ListitemContext);
 
     if (context === undefined)
 
     throw new Error('useListitems has to be called within a SlProvider')
+
+    return context;
 }

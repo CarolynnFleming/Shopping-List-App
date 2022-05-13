@@ -31,7 +31,7 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
     } else {
         item = (
             <>
-            <p style={{ textDecoration: listitem.don ? 'line-through' : null }}>
+            <p style={{ textDecoration: listitem.done ? 'line-through' : null }}>
                 {listitem.text}
             </p>
             <button 

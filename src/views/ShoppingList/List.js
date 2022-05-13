@@ -4,15 +4,34 @@ import { useListitems } from "../../context/ShoppinglistProvider";
 
 export default function List() {
     const [newItem, setNewItem] = useState('');
-    const { listitems, controlAddListitems, controlUpdateListitem, controlDeleteListitem } =
+    const { listitems, controlAddListitem, controlUpdateListitem, controlDeleteListitem } =
     useListitems();
 
     const controlSubmit = (event) => {
         event.preventDefault();
-        controlAddListitems(newItem);
+        controlAddListitem(newItem);
         setNewItem('');
     };
   return (
-    <div>List</div>
-  )
+   <>
+   <h1>List Item</h1>
+   <form onSubmit={controlSubmit}>
+       <input type="text"
+       name="newItem"
+       placeholder="Add a new item"
+       value={newItem}
+       onChange={(event) => setNewItem(event.target.value)} />
+   </form>
+   <ul>
+       {listitems.map((listitem) => (
+           <li key={listitem.id}>
+               <GroceryList
+               listitem={listitem}
+               onUpdate={controlUpdateListitem}
+               onDelete={controlDeleteListitem} />
+           </li>
+       ))}
+   </ul>
+   </>
+  );
 }
