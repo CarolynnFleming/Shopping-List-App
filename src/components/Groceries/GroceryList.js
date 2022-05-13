@@ -57,6 +57,13 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
         });
         }}
         />
+        {item}
+        <button
+        type="button"
+        onClick={() => onDelete(listitem.id)}
+        aria-label={`Delete ${listitem.text}`}>
+            Delete
+        </button>
         </div>
-  )
+  );
 }
