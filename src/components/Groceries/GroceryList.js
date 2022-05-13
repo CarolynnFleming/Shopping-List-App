@@ -34,8 +34,14 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
             <p style={{ textDecoration: listitem.don ? 'line-through' : null }}>
                 {listitem.text}
             </p>
+            <button 
+            type="button"
+            onClick={() => change(true)}
+            aria-label={`Edit ${listitem.text}`}>
+                Edit
+            </button>
             </>
-        )
+        );
 
     }
   return (
