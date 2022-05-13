@@ -38,5 +38,9 @@ export const ShoppinglistProvider = ({ children }) => {
 
     const controlAddListitem = (text) => {
         dispatch({ type: 'ADD_LISTITEM', payload: { text } });
-    }
+    };
+
+    const controlUpdateListitem = (listitem) => {
+        dispatch({ type: 'UPDATE_LISTITEM', payload: { id } });
+    };
 }
