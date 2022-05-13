@@ -47,4 +47,11 @@ export const ShoppinglistProvider = ({ children }) => {
     const controlDeleteListitem = (id) => {
         dispatch({ type: 'DELETE_LISTITEM', payload: { id } });
     };
-}
+
+    return (
+        <SlContext.Provider
+        value={{ listitems, controlAddListitem, controlUpdateListitem, controlDeleteListitem }}>
+            {children}
+        </SlContext.Provider>
+    );
+};
