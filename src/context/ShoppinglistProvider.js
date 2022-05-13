@@ -11,5 +11,17 @@ const slReducer = (state, action) => {
             ...state,
         ];
         case 'UPDATE_LISTITEM':
+            return state.map((listitem) => {
+                if (listitem.id === action.payload.listitem.id) {
+                    const { done, text } = action.payload.listitem;
+
+                    return {
+                        ...listitem,
+                        done,
+                        text,
+                    };
+                }
+                return listitem;
+            });
     }
 }
