@@ -45,6 +45,18 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
 
     }
   return (
-    <div>GroceryList</div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+        <input
+        type="checkbox"
+        checked={listitem.done}
+        onChange={(event) => {
+        onUpdate({
+            ...listitem,
+            done: event.target.checked,
+
+        });
+        }}
+        />
+        </div>
   )
 }
