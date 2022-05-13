@@ -41,6 +41,10 @@ export const ShoppinglistProvider = ({ children }) => {
     };
 
     const controlUpdateListitem = (listitem) => {
-        dispatch({ type: 'UPDATE_LISTITEM', payload: { id } });
+        dispatch({ type: 'UPDATE_LISTITEM', payload: { listitem } });
+    };
+
+    const controlDeleteListitem = (id) => {
+        dispatch({ type: 'DELETE_LISTITEM', payload: { id } });
     };
 }
