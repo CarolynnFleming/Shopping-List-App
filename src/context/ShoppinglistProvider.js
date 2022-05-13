@@ -23,5 +23,10 @@ const slReducer = (state, action) => {
                 }
                 return listitem;
             });
+            case 'DELETE_LISTITEM':
+                return state.filter((listitem) => listitem.id !== action.payload.id)
+;
+            default:
+                throw new Error(`Action type ${action.type} is not supported`);
     }
-}
+};
