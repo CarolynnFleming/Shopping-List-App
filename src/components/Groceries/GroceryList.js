@@ -22,6 +22,10 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
                         });
                     }}
                     />
+
+                    <button type="submit" aria-label='save changes'>
+                        Save
+                    </button>
                 </form>
         )
     } else {
