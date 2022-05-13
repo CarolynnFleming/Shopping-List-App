@@ -27,8 +27,15 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
                         Save
                     </button>
                 </form>
-        )
+        );
     } else {
+        item = (
+            <>
+            <p style={{ textDecoration: listitem.don ? 'line-through' : null }}>
+                {listitem.text}
+            </p>
+            </>
+        )
 
     }
   return (
