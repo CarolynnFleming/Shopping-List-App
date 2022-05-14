@@ -14,9 +14,10 @@ export default function List() {
     };
   return (
    <>
-   <h1>List Item</h1>
+   <h1>Shopping List Item</h1>
    <form onSubmit={controlSubmit}>
-       <input type="text"
+       <input 
+       type="text"
        name="newItem"
        placeholder="Add a new item"
        value={newItem}

@@ -36,7 +36,7 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
             </p>
             <button 
             type="button"
-            onClick={() => change(true)}
+            onClick={() => setChange(true)}
             aria-label={`Edit ${listitem.text}`}>
                 Edit
             </button>
@@ -45,9 +45,10 @@ export default function GroceryList({ listitem, onUpdate, onDelete }) {
 
     }
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: '0.7rem' }}>
+    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
         <input
         type="checkbox"
+        aria-checked="true"
         checked={listitem.done}
         onChange={(event) => {
         onUpdate({

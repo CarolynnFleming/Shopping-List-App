@@ -7,7 +7,7 @@ const listitemReducer = (state, action) => {
         case 'ADD_LISTITEM':
 
         return [
-            { id: Date.now(), test: action.payload.text, done: false },
+            { id: Date.now(), text: action.payload.text, done: false },
             ...state,
         ];
         case 'UPDATE_LISTITEM':
